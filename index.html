@@ -1,0 +1,265 @@
+{% extends "material/base.html" %}
+{% block content %}
+<div class="showcase container grey lighten-2">
+  <!-- lighten-3 -->
+    <div class="row">
+        <div class="col 14 m12 center">
+            <h2>Lifestyle Disease Prediction </h2>
+            <p >Max Healthcare MH4</p>
+            <a href="{{url_for('index')}}" class="btn btn-primary btn-lg">Reset</a>
+            <a href="{{url_for('preview')}}" class="btn btn-primary btn-lg">View Dataset</a>
+        </div>
+
+    </div>
+</div>
+<section class="section section-signup">
+        <div class="container">
+          <div class="row">
+           
+            <div class="col s7">
+              <div class="card-panel grey lighten-4 grey-text text-darken-4 z-depth-0">
+                <form action="{{ url_for('analyze')}}" method="POST">
+
+                  <!-- <div class="input-field">
+                   <p class="range-field">
+                        <input type="range" id="sepal_lengthInput" name="sepal_length" min="4" max="8" value="0" step="0.1" >
+                    <label for="Sepal Length">sepal length</label>
+                  </div>
+
+                   <div class="input-field">
+                   <p class="range-field">
+                        <input type="range" id="sepal_widthInput" name="sepal_width" min="2" max="5" value="0" step="0.1"> 
+                    <label for="">Sepal Width</label>
+                  </div> -->
+
+                  <div class="input-field">
+                   <p class="range-field">
+                        <input type="text" id="age_input" name="age_input" >
+                    <label for="">Age</label>
+                  </div>
+
+                  <div class="input-field">
+                   <p class="range-field">
+                        <input type="text" id="bmi_input" name="bmi_input" >
+                    <label for="">Bmi</label>
+                  </div>
+
+                 <!--  <div class="input-field">
+                   <p class="range-field"> -->
+                        <!-- <input type="range" id="height" name="height_input" min="120" max="190" value="0" step="0.1">  -->
+                        <!-- <input type="text" id="height_input" name="height_input" >
+                    <label for="">Height(in cm)</label>
+                  </div>
+
+                  <div class="input-field">
+                   <p class="range-field"> -->
+                        <!-- <input type="range" id="weight" name="weight_input" min="30" max="200" value="0" step="1">  -->
+                        <!-- <input type="text" id="weight_input" name="weight_input" >
+                    <label for="">weight(in kg)</label>
+                  </div> -->
+
+
+                  
+                  <div class="input-field">
+                    <select id="gender" name="gender_choice">
+                      <option value="1">Male</option>
+                        <option value="0">Female</option>
+                    </select>
+                    <label for="role">Gender</label>
+                  </div>
+
+                  <div class="input-field">
+                    <select id="sleep" name="sleep_input">
+                      <option value="1">Less than 4 hours</option>
+                        <option value="2">4 to 10 hours</option>
+                        <option value="3">Above 10 hours</option> 
+                    </select>
+                    <label for="role">How many hours do you sleep on average?</label>
+                  </div>
+
+                  <div class="input-field">
+                    <select id="junk" name="junk_input">
+                      <option value="1">Less than 2</option>
+                        <option value="2">2 to 4</option>
+                        <option value="3">Greater than 4</option> 
+                    </select>
+                    <label for="role">How many times do you consume fast food in a week on an average?</label>
+                  </div>
+
+                  <div class="input-field">
+                    <select id="Exercise" name="exercise_input">
+                      <option value="1">Light (walking,jogging)</option>
+                        <option value="2">Moderate( Running,yoga)</option>
+                        <option value="3">High (Gym, cardiovascular)</option> 
+                    </select>
+                    <label for="role">Exercise?</label>
+                  </div>
+
+                  <div class="input-field">
+                    <select id="smoking" name="smoking_input">
+                      <option value="0">Less than 5</option>
+                        <option value="1">Greater than 5</option>
+                       
+                    </select>
+                    <label for="role">How many times do you smoke in a month?</label>
+                  </div>
+
+                  <div class="input-field">
+                    <select id="drinking" name="drinking_input">
+                      <option value="0">Less than 5</option>
+                        <option value="1">Greater than 5</option>
+                       
+                    </select>
+                    <label for="role">How many times do you drink in a month?</label>
+                  </div>
+                  
+
+
+                  <!--  <div class="input-field">
+                   <p class="range-field">
+                        <input type="range" id="petal_lengthInput" name="petal_length" min="0" max="7" value="0" step="0.1" >
+                    <label for="">Petal Length</label>
+                  </div>
+
+                  <div class="input-field">
+                   <p class="range-field">
+                        <input type="range" id="petal_widthInput" name="petal_width" min="0" max="3" value="0" step="0.1">
+                    <label for="">Petal Width</label>
+                  </div> -->
+                  
+                  <!-- dropdown for input method -->
+                  <!-- <div class="input-field">
+                    <select id="role" name="model_choice">
+                      <option value="" disabled selected>Select Model</option>
+                      <option value="logitmodel">Logistic Regression</option>
+                        <option value="knnmodel">K-Nearest Neighbour</option>
+                        <option value="svmmodel">SVM</option>
+                    </select>
+                    <label for="role">Select ML Algorithm</label>
+                  </div> -->
+
+
+                  <input type="submit" value="Predict" class="btn btn-primary btn-lg">
+                  <input type="reset" value="Clear" class="btn btn-primary btn-lg">
+                </form>
+              </div>
+            </div>
+             <div class="col s5 offers">
+                     <div class="card-panel grey lighten-2 grey-text text-darken-4 z-depth-0">
+                         
+                           <!-- <p>Sepal Length: {{ sepal_length }}</p>
+                           <p>Sepal Width: {{ sepal_width }}</p>
+                           <p>Petal Length: {{ petal_length}} </p>
+                           <p>Petal Width: {{ petal_width}}</p> -->
+                            <h3>Users Input:</h3>
+                          <!--  <p>Age: {{ sepal_length }}</p>
+
+                           <p>Sex: {{ sepal_width }}</p> -->
+                           <!-- <p>petal lenght: {{ petal_length}} </p> -->
+                           <!-- <p>Weight: {{ petal_width}}</p> -->
+
+                           <p>AGE: {{ age_input}}</p>
+                           <p>BMI: {{bmi_input}}</p>
+
+                           <!-- <p>Height(in cm): {{height_input}}</p> -->
+
+                          <p>GENDER (1 = Male, 0 = Female): {{ gender_choice}}</p>
+
+                          <p>SLEEP: {{sleep_input}}</p>
+
+                          <p>JUNK FOOD: {{junk_input}}</p>
+
+                          <p>SMOKING: {{smoking_input}}</p>
+
+                          <p>EXERCISE: {{exercise_input}}</p>
+
+                          <p>DRINKING: {{drinking_input}}</p>
+
+                         <!--  <p>Weight(in kg): {{weight_input}}</p>
+ -->
+         <!-- Using {{ model_selected }} on {{ clean_data }} -->
+              
+            </div>
+                     </div>
+                     
+          
+    
+            
+    
+             <div class="col s12 m5 offers">
+                <h5>Prediction: </h5>
+                  <!-- <div class="collection" role="alert">
+                    <p  class="collection-item active purple">Predicted result: {{ result_prediction }} </p>
+                </div>  -->      				
+                <div class="card-panel grey lighten-2 grey-text text-darken-4 z-depth-0">
+
+                      <!-- <p>Result: {{result_prediction}}</p> -->
+                    
+                      {% if result_prediction == 1 %}
+                        <h4>Depression</h4>
+                        <h5>Preventions:</h5>
+                        <p>1. Take good care of yourself. Get enough sleep, eat well, and exercise regularly.</p>
+                        <p>2. Get regular medical checkups, and see your provider if you don’t feel right.</p>
+                        <p>3. Reach out to family and friends when times get hard.</p>
+                        <!-- <img src="static/imgs/iris_versicolor.jpg" width="200px" height="200px"> -->
+    
+                        {% elif result_prediction == 2  %}
+                        <h4>Diabetes</h4>
+                        <h5>Preventions:</h5>
+                        <p>1. Drink Water as Your Primary Beverage.</p>
+                        <p>2. Follow a Very-Low-Carb Diet.</p>
+                        <p>3. Avoid Sedentary Behaviors.</p>
+                          <!-- <img src="static/imgs/iris_setosa.jpg" width="200px" height="200px"> -->
+                        
+                        {% elif result_prediction == 3  %}
+                        <h4>Hyper Tension</h4>
+                        <h5>Preventions:</h5>
+                        <p>1. Reduce sodium in your diet.</p>
+                        <p>2. Cut back on caffeine.</p>
+                        <p>3. Limit the amount of alcohol you drink.</p>
+                        <p>4. Maintaining a healthy weight.</p>
+                          
+                       {% endif%}
+                </div>
+              
+              </div>
+                          <div class="col s12 m5">
+
+                          <a href="https://www.maxhealthcare.in/find-a-doctor" class="btn btn-light">Find a doctor</a>
+                          <br></br>
+                          <a href="https://www.maxhealthcare.in/book-an-appointment" class="btn btn-light">Book an Appointment</a>
+                          <br></br>
+                          <a href="https://freeboard.io/board/r_961B" class="btn btn-light">Analysis</a>
+                          </div>
+                        
+                          </div>
+              
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+      {% endblock%}
+
+      {% block scripts %}
+      {{super()}}
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+       <!-- Compiled and minified JavaScript -->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+      <!-- <script type="text/javascript">
+           document.addEventListener('DOMContentLoaded', function() {
+          var elems = document.querySelectorAll('select');
+          var instances = M.FormSelect.init(elems, options);
+        });
+      </script> -->
+      
+      <script>
+        $(document).ready(function(){
+          $('select').formSelect();
+        });
+      </script>
+      
+      {% endblock %}
